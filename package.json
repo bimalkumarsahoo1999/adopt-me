@@ -8,6 +8,7 @@
     "cleanup": "rm -rf .parcel-cache dist",
     "dev": "npm run cleanup && parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "heroku-postbuild": "parcel build src/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
   "author": "Brian Holt <btholt+citr-v7-project@gmail.com>",
