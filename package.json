@@ -2,7 +2,6 @@
   "name": "react-app",
   "version": "1.0.0",
   "description": "Adopt pets via adopt-me",
-  "main": "src/App.js",
   "scripts": {
     "start": "parcel src/index.html --open",
     "build": "parcel build src/index.html",
