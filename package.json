@@ -1,8 +1,7 @@
 {
   "name": "react-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.html",
+  "description": "adopt-me app",
   "scripts": {
     "start": "parcel src/index.html --open",
     "dev": "parcel src/index.html",
