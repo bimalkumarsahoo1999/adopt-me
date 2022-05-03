@@ -11,8 +11,6 @@
     "heroku-postbuild": "parcel build src/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
-  "author": "Brian Holt <btholt+citr-v7-project@gmail.com>",
-  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.16.7",
     "eslint": "8.8.0",
