@@ -1120,12 +1120,21 @@ module.exports = require('./cjs/react.development.js');
     var REACT_ELEMENT_TYPE = 0xeac7;
     var REACT_PORTAL_TYPE = 0xeaca;
     exports.Fragment = 0xeacb;
+<<<<<<< HEAD
     exports.StrictMode = 0xeacc;
     exports.Profiler = 0xead2;
     var REACT_PROVIDER_TYPE = 0xeacd;
     var REACT_CONTEXT_TYPE = 0xeace;
     var REACT_FORWARD_REF_TYPE = 0xead0;
     exports.Suspense = 0xead1;
+=======
+    var REACT_STRICT_MODE_TYPE = 0xeacc;
+    var REACT_PROFILER_TYPE = 0xead2;
+    var REACT_PROVIDER_TYPE = 0xeacd;
+    var REACT_CONTEXT_TYPE = 0xeace;
+    var REACT_FORWARD_REF_TYPE = 0xead0;
+    var REACT_SUSPENSE_TYPE = 0xead1;
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
     var REACT_SUSPENSE_LIST_TYPE = 0xead8;
     var REACT_MEMO_TYPE = 0xead3;
     var REACT_LAZY_TYPE = 0xead4;
@@ -1821,6 +1830,7 @@ module.exports = require('./cjs/react.development.js');
  *
  * See https://reactjs.org/docs/react-api.html#reactchildrencount
  *
+<<<<<<< HEAD
  * @param {?*} children Children tree container.
  * @return {number} The number of children.
  */ function countChildren(children) {
@@ -1829,6 +1839,70 @@ module.exports = require('./cjs/react.development.js');
             n++; // Don't return anything
         });
         return n;
+=======
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+(function() {
+    var _assign = require('object-assign');
+    // TODO: this is special because it gets imported during build.
+    var ReactVersion = '17.0.2';
+    // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+    // nor polyfill, then a plain number is used for performance.
+    var REACT_ELEMENT_TYPE = 0xeac7;
+    var REACT_PORTAL_TYPE = 0xeaca;
+    exports.Fragment = 0xeacb;
+    exports.StrictMode = 0xeacc;
+    exports.Profiler = 0xead2;
+    var REACT_PROVIDER_TYPE = 0xeacd;
+    var REACT_CONTEXT_TYPE = 0xeace;
+    var REACT_FORWARD_REF_TYPE = 0xead0;
+    exports.Suspense = 0xead1;
+    var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+    var REACT_MEMO_TYPE = 0xead3;
+    var REACT_LAZY_TYPE = 0xead4;
+    var REACT_BLOCK_TYPE = 0xead9;
+    var REACT_SERVER_BLOCK_TYPE = 0xeada;
+    var REACT_FUNDAMENTAL_TYPE = 0xead5;
+    var REACT_SCOPE_TYPE = 0xead7;
+    var REACT_OPAQUE_ID_TYPE = 0xeae0;
+    var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+    var REACT_OFFSCREEN_TYPE = 0xeae2;
+    var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+    if (typeof Symbol === 'function' && Symbol.for) {
+        var symbolFor = Symbol.for;
+        REACT_ELEMENT_TYPE = symbolFor('react.element');
+        REACT_PORTAL_TYPE = symbolFor('react.portal');
+        exports.Fragment = symbolFor('react.fragment');
+        exports.StrictMode = symbolFor('react.strict_mode');
+        exports.Profiler = symbolFor('react.profiler');
+        REACT_PROVIDER_TYPE = symbolFor('react.provider');
+        REACT_CONTEXT_TYPE = symbolFor('react.context');
+        REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+        exports.Suspense = symbolFor('react.suspense');
+        REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+        REACT_MEMO_TYPE = symbolFor('react.memo');
+        REACT_LAZY_TYPE = symbolFor('react.lazy');
+        REACT_BLOCK_TYPE = symbolFor('react.block');
+        REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+        REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+        REACT_SCOPE_TYPE = symbolFor('react.scope');
+        REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
+        REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+        REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
+        REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+    }
+    var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+    var FAUX_ITERATOR_SYMBOL = '@@iterator';
+    function getIteratorFn(maybeIterable) {
+        if (maybeIterable === null || typeof maybeIterable !== 'object') return null;
+        var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+        if (typeof maybeIterator === 'function') return maybeIterator;
+        return null;
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
     }
     /**
  * Iterates through children that are typically specified as `props.children`.
@@ -23058,6 +23132,7 @@ function warningOnce(key, cond, message) {
         alreadyWarned[key] = true;
         warning(false, message);
     }
+<<<<<<< HEAD
 }
 /**
  * Returns a path with params interpolated.
@@ -23072,6 +23147,22 @@ function warningOnce(key, cond, message) {
     );
 }
 /**
+=======
+}
+/**
+ * Returns a path with params interpolated.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#generatepath
+ */ function generatePath(path, params) {
+    if (params === void 0) params = {};
+    return path.replace(/:(\w+)/g, (_, key)=>{
+        !(params[key] != null) && invariant(false, "Missing \":" + key + "\" param");
+        return params[key];
+    }).replace(/\/*\*$/, (_)=>params["*"] == null ? "" : params["*"].replace(/^\/*/, "/")
+    );
+}
+/**
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
  * A RouteMatch contains info about how a route matched a URL.
  */ /**
  * Matches the given routes to a location and returns the match data.
@@ -23147,6 +23238,248 @@ function computeScore(path, index) {
     return segments.filter((s)=>!isSplat(s)
     ).reduce((score, segment)=>score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue)
     , initialScore);
+<<<<<<< HEAD
+=======
+}
+function compareIndexes(a, b) {
+    let siblings = a.length === b.length && a.slice(0, -1).every((n, i)=>n === b[i]
+    );
+    return siblings ? // first. This allows people to have fine-grained control over the matching
+    // behavior by simply putting routes with identical paths in the order they
+    // want them tried.
+    a[a.length - 1] - b[b.length - 1] : // so they sort equally.
+    0;
+}
+function matchRouteBranch(branch, pathname) {
+    let { routesMeta  } = branch;
+    let matchedParams = {};
+    let matchedPathname = "/";
+    let matches = [];
+    for(let i = 0; i < routesMeta.length; ++i){
+        let meta = routesMeta[i];
+        let end = i === routesMeta.length - 1;
+        let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
+        let match = matchPath({
+            path: meta.relativePath,
+            caseSensitive: meta.caseSensitive,
+            end
+        }, remainingPathname);
+        if (!match) return null;
+        Object.assign(matchedParams, match.params);
+        let route = meta.route;
+        matches.push({
+            params: matchedParams,
+            pathname: joinPaths([
+                matchedPathname,
+                match.pathname
+            ]),
+            pathnameBase: normalizePathname(joinPaths([
+                matchedPathname,
+                match.pathnameBase
+            ])),
+            route
+        });
+        if (match.pathnameBase !== "/") matchedPathname = joinPaths([
+            matchedPathname,
+            match.pathnameBase
+        ]);
+    }
+    return matches;
+}
+/**
+ * A PathPattern is used to match on some portion of a URL pathname.
+ */ /**
+ * Performs pattern matching on a URL pathname and returns information about
+ * the match.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#matchpath
+ */ function matchPath(pattern, pathname) {
+    if (typeof pattern === "string") pattern = {
+        path: pattern,
+        caseSensitive: false,
+        end: true
+    };
+    let [matcher, paramNames] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
+    let match = pathname.match(matcher);
+    if (!match) return null;
+    let matchedPathname = match[0];
+    let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
+    let captureGroups = match.slice(1);
+    let params = paramNames.reduce((memo, paramName, index)=>{
+        // We need to compute the pathnameBase here using the raw splat value
+        // instead of using params["*"] later because it will be decoded then
+        if (paramName === "*") {
+            let splatValue = captureGroups[index] || "";
+            pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
+        }
+        memo[paramName] = safelyDecodeURIComponent(captureGroups[index] || "", paramName);
+        return memo;
+    }, {});
+    return {
+        params,
+        pathname: matchedPathname,
+        pathnameBase,
+        pattern
+    };
+}
+function compilePath(path, caseSensitive, end) {
+    if (caseSensitive === void 0) caseSensitive = false;
+    if (end === void 0) end = true;
+    warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), "Route path \"" + path + "\" will be treated as if it were " + ("\"" + path.replace(/\*$/, "/*") + "\" because the `*` character must ") + "always follow a `/` in the pattern. To get rid of this warning, " + ("please change the route path to \"" + path.replace(/\*$/, "/*") + "\"."));
+    let paramNames = [];
+    let regexpSource = "^" + path.replace(/\/*\*?$/, "") // Ignore trailing / and /*, we'll handle it below
+    .replace(/^\/*/, "/") // Make sure it has a leading /
+    .replace(/[\\.*+^$?{}|()[\]]/g, "\\$&") // Escape special regex chars
+    .replace(/:(\w+)/g, (_, paramName)=>{
+        paramNames.push(paramName);
+        return "([^\\/]+)";
+    });
+    if (path.endsWith("*")) {
+        paramNames.push("*");
+        regexpSource += path === "*" || path === "/*" ? "(.*)$" // Already matched the initial /, just match the rest
+         : "(?:\\/(.+)|\\/*)$"; // Don't include the / in params["*"]
+    } else regexpSource += end ? "\\/*$" // When matching to the end, ignore trailing slashes
+     : // parent routes to matching only their own words and nothing more, e.g. parent
+    // route "/home" should not match "/home2".
+    // Additionally, allow paths starting with `.`, `-`, `~`, and url-encoded entities,
+    // but do not consume the character in the matched path so they can match against
+    // nested paths.
+    "(?:(?=[.~-]|%[0-9A-F]{2})|\\b|\\/|$)";
+    let matcher = new RegExp(regexpSource, caseSensitive ? undefined : "i");
+    return [
+        matcher,
+        paramNames
+    ];
+}
+function safelyDecodeURIComponent(value, paramName) {
+    try {
+        return decodeURIComponent(value);
+    } catch (error) {
+        warning(false, "The value for the URL param \"" + paramName + "\" will not be decoded because" + (" the string \"" + value + "\" is a malformed URL segment. This is probably") + (" due to a bad percent encoding (" + error + ")."));
+        return value;
+    }
+}
+/**
+ * Returns a resolved path object relative to the given pathname.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#resolvepath
+ */ function resolvePath(to, fromPathname) {
+    if (fromPathname === void 0) fromPathname = "/";
+    let { pathname: toPathname , search ="" , hash =""  } = typeof to === "string" ? _history.parsePath(to) : to;
+    let pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
+    return {
+        pathname,
+        search: normalizeSearch(search),
+        hash: normalizeHash(hash)
+    };
+}
+function resolvePathname(relativePath, fromPathname) {
+    let segments = fromPathname.replace(/\/+$/, "").split("/");
+    let relativeSegments = relativePath.split("/");
+    relativeSegments.forEach((segment)=>{
+        if (segment === "..") // Keep the root "" segment so the pathname starts at /
+        {
+            if (segments.length > 1) segments.pop();
+        } else if (segment !== ".") segments.push(segment);
+    });
+    return segments.length > 1 ? segments.join("/") : "/";
+}
+function resolveTo(toArg, routePathnames, locationPathname) {
+    let to = typeof toArg === "string" ? _history.parsePath(toArg) : toArg;
+    let toPathname = toArg === "" || to.pathname === "" ? "/" : to.pathname; // If a pathname is explicitly provided in `to`, it should be relative to the
+    // route context. This is explained in `Note on `<Link to>` values` in our
+    // migration guide from v5 as a means of disambiguation between `to` values
+    // that begin with `/` and those that do not. However, this is problematic for
+    // `to` values that do not provide a pathname. `to` can simply be a search or
+    // hash string, in which case we should assume that the navigation is relative
+    // to the current location's pathname and *not* the route pathname.
+    let from;
+    if (toPathname == null) from = locationPathname;
+    else {
+        let routePathnameIndex = routePathnames.length - 1;
+        if (toPathname.startsWith("..")) {
+            let toSegments = toPathname.split("/"); // Each leading .. segment means "go up one route" instead of "go up one
+            // URL segment".  This is a key difference from how <a href> works and a
+            // major reason we call this a "to" value instead of a "href".
+            while(toSegments[0] === ".."){
+                toSegments.shift();
+                routePathnameIndex -= 1;
+            }
+            to.pathname = toSegments.join("/");
+        } // If there are more ".." segments than parent routes, resolve relative to
+        // the root / URL.
+        from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
+    }
+    let path = resolvePath(to, from); // Ensure the pathname has a trailing slash if the original to value had one.
+    if (toPathname && toPathname !== "/" && toPathname.endsWith("/") && !path.pathname.endsWith("/")) path.pathname += "/";
+    return path;
+}
+function getToPathname(to) {
+    // Empty strings should be treated the same as / paths
+    return to === "" || to.pathname === "" ? "/" : typeof to === "string" ? _history.parsePath(to).pathname : to.pathname;
+}
+function stripBasename(pathname, basename) {
+    if (basename === "/") return pathname;
+    if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) return null;
+    let nextChar = pathname.charAt(basename.length);
+    if (nextChar && nextChar !== "/") // pathname does not start with basename/
+    return null;
+    return pathname.slice(basename.length) || "/";
+}
+const joinPaths = (paths)=>paths.join("/").replace(/\/\/+/g, "/")
+;
+const normalizePathname = (pathname)=>pathname.replace(/\/+$/, "").replace(/^\/*/, "/")
+;
+const normalizeSearch = (search)=>!search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search
+;
+const normalizeHash = (hash)=>!hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash
+;
+/**
+ * Returns the full href for the given "to" value. This is useful for building
+ * custom links that are also accessible and preserve right-click behavior.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#usehref
+ */ function useHref(to) {
+    !useInRouterContext() && invariant(false, // router loaded. We can help them understand how to avoid that.
+    "useHref() may be used only in the context of a <Router> component.");
+    let { basename , navigator  } = _react.useContext(NavigationContext);
+    let { hash , pathname , search  } = useResolvedPath(to);
+    let joinedPathname = pathname;
+    if (basename !== "/") {
+        let toPathname = getToPathname(to);
+        let endsWithSlash = toPathname != null && toPathname.endsWith("/");
+        joinedPathname = pathname === "/" ? basename + (endsWithSlash ? "/" : "") : joinPaths([
+            basename,
+            pathname
+        ]);
+    }
+    return navigator.createHref({
+        pathname: joinedPathname,
+        search,
+        hash
+    });
+}
+/**
+ * Returns true if this component is a descendant of a <Router>.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#useinroutercontext
+ */ function useInRouterContext() {
+    return _react.useContext(LocationContext) != null;
+}
+/**
+ * Returns the current location object, which represents the current URL in web
+ * browsers.
+ *
+ * Note: If you're using this it may mean you're doing some of your own
+ * "routing" in your app, and we'd like to know what your use case is. We may
+ * be able to provide something higher-level to better suit your needs.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#uselocation
+ */ function useLocation() {
+    !useInRouterContext() && invariant(false, // router loaded. We can help them understand how to avoid that.
+    "useLocation() may be used only in the context of a <Router> component.");
+    return _react.useContext(LocationContext).location;
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
 }
 function compareIndexes(a, b) {
     let siblings = a.length === b.length && a.slice(0, -1).every((n, i)=>n === b[i]
@@ -23581,6 +23914,8 @@ function _renderMatches(matches, parentMatches) {
 }
 /**
  * A <Router> that stores all entries in memory.
+<<<<<<< HEAD
+=======
  *
  * @see https://reactrouter.com/docs/en/v6/api#memoryrouter
  */ function MemoryRouter(_ref) {
@@ -23712,6 +24047,139 @@ function _renderMatches(matches, parentMatches) {
  * Creates a route config from a React "children" object, which is usually
  * either a `<Route>` element or an array of them. Used internally by
  * `<Routes>` to create a route config from its children.
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#memoryrouter
+ */ function MemoryRouter(_ref) {
+    let { basename , children , initialEntries , initialIndex  } = _ref;
+    let historyRef = _react.useRef();
+    if (historyRef.current == null) historyRef.current = _history.createMemoryHistory({
+        initialEntries,
+        initialIndex
+    });
+    let history = historyRef.current;
+    let [state, setState] = _react.useState({
+        action: history.action,
+        location: history.location
+    });
+    _react.useLayoutEffect(()=>history.listen(setState)
+    , [
+        history
+    ]);
+    return /*#__PURE__*/ _react.createElement(Router, {
+        basename: basename,
+        children: children,
+        location: state.location,
+        navigationType: state.action,
+        navigator: history
+    });
+}
+/**
+<<<<<<< HEAD
+ * Changes the current location.
+ *
+ * Note: This API is mostly useful in React.Component subclasses that are not
+ * able to use hooks. In functional components, we recommend you use the
+ * `useNavigate` hook instead.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#navigate
+ */ function Navigate(_ref2) {
+    let { to , replace , state  } = _ref2;
+    !useInRouterContext() && invariant(false, // the router loaded. We can help them understand how to avoid that.
+    "<Navigate> may be used only in the context of a <Router> component.");
+    warning(!_react.useContext(NavigationContext).static, "<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.");
+    let navigate = useNavigate();
+    _react.useEffect(()=>{
+        navigate(to, {
+            replace,
+            state
+        });
+    });
+    return null;
+}
+/**
+ * Renders the child route's element, if there is one.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#outlet
+ */ function Outlet(props) {
+    return useOutlet(props.context);
+}
+/**
+ * Declares an element that should be rendered at a certain URL path.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#route
+ */ function Route(_props) {
+    invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.");
+}
+/**
+ * Provides location context for the rest of the app.
+ *
+ * Note: You usually won't render a <Router> directly. Instead, you'll render a
+ * router that is more specific to your environment such as a <BrowserRouter>
+ * in web browsers or a <StaticRouter> for server rendering.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#router
+ */ function Router(_ref3) {
+    let { basename: basenameProp = "/" , children =null , location: locationProp , navigationType =_history.Action.Pop , navigator , static: staticProp = false  } = _ref3;
+    !!useInRouterContext() && invariant(false, "You cannot render a <Router> inside another <Router>. You should never have more than one in your app.");
+    let basename = normalizePathname(basenameProp);
+    let navigationContext = _react.useMemo(()=>({
+            basename,
+            navigator,
+            static: staticProp
+        })
+    , [
+        basename,
+        navigator,
+        staticProp
+    ]);
+    if (typeof locationProp === "string") locationProp = _history.parsePath(locationProp);
+    let { pathname ="/" , search ="" , hash ="" , state =null , key ="default"  } = locationProp;
+    let location = _react.useMemo(()=>{
+        let trailingPathname = stripBasename(pathname, basename);
+        if (trailingPathname == null) return null;
+        return {
+            pathname: trailingPathname,
+            search,
+            hash,
+            state,
+            key
+        };
+    }, [
+        basename,
+        pathname,
+        search,
+        hash,
+        state,
+        key
+    ]);
+    warning(location != null, "<Router basename=\"" + basename + "\"> is not able to match the URL " + ("\"" + pathname + search + hash + "\" because it does not start with the ") + "basename, so the <Router> won't render anything.");
+    if (location == null) return null;
+    return /*#__PURE__*/ _react.createElement(NavigationContext.Provider, {
+        value: navigationContext
+    }, /*#__PURE__*/ _react.createElement(LocationContext.Provider, {
+        children: children,
+        value: {
+            location,
+            navigationType
+        }
+    }));
+}
+/**
+ * A container for a nested tree of <Route> elements that renders the branch
+ * that best matches the current location.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#routes
+ */ function Routes(_ref4) {
+    let { children , location  } = _ref4;
+    return useRoutes(createRoutesFromChildren(children), location);
+} ///////////////////////////////////////////////////////////////////////////////
+// UTILS
+///////////////////////////////////////////////////////////////////////////////
+/**
+ * Creates a route config from a React "children" object, which is usually
+ * either a `<Route>` element or an array of them. Used internally by
+ * `<Routes>` to create a route config from its children.
  *
  * @see https://reactrouter.com/docs/en/v6/api#createroutesfromchildren
  */ function createRoutesFromChildren(children) {
@@ -23738,6 +24206,8 @@ function _renderMatches(matches, parentMatches) {
     return routes;
 }
 /**
+=======
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
  * Renders the result of `matchRoutes()` into a React element.
  */ function renderMatches(matches) {
     return _renderMatches(matches);

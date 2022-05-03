@@ -1,11 +1,12 @@
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+.env/
+.DS_Store/
+coverage/
+.vscode/
+node_modules/
+npm-debug.log/
 
-# testing
-/coverage
 
+<<<<<<< HEAD
 # next.js
 /.next/
 /out/
@@ -30,3 +31,8 @@ yarn-error.log*
 # Parcel related files
 dist/
 .cache/
+=======
+# Parcel related files
+dist/
+.parcel-cache/
+>>>>>>> 5dab23992371e41eb2cd2282b6c931aa76e29276
