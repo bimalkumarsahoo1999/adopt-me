@@ -5,9 +5,9 @@
 
 body {
   background-color: #81a69b;
-  background-image: url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg);
+  background-image: url("http://pets-images.dev-apis.com/pets/wallpaperB.jpg");
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .search-params {
@@ -16,42 +16,41 @@ body {
 }
 
 .search-params form {
-  border-radius: 6px;
-  background: #faeff0;
-  box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
   width: 360px;
-  margin: 0px 25px 0px 0px;
-  padding: 35px 15px 15px 15px;
   float: left;
+  background: #faeff0;
+  border-radius: 6px;
+  margin: 0 25px 0 0;
+  padding: 35px 15px 15px;
+  box-shadow: 0 0 12px #aaa, 0 0 12px #fff;
 }
 
 .search {
-  border-radius: 6px;
-  background: #faeff0;
-  box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
   width: 715px;
-  padding: 15px;
   float: left;
+  background: #faeff0;
+  border-radius: 6px;
   margin-bottom: 25px;
+  padding: 15px;
+  box-shadow: 0 0 12px #aaa, 0 0 12px #fff;
 }
 
 .details {
   width: 1100px;
-  margin: 0 auto;
-  padding: 15px;
-  margin-bottom: 25px;
-  border-radius: 6px;
   background: #faeff0;
-  box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
+  border-radius: 6px;
+  margin: 0 auto 25px;
+  padding: 15px;
+  box-shadow: 0 0 12px #aaa, 0 0 12px #fff;
 }
 
 .pet {
   width: 100%;
   height: 130px;
+  border-bottom: 2px solid #333;
+  margin: 25px 0;
   display: block;
   overflow: hidden;
-  margin: 25px 0;
-  border-bottom: #333 2px solid;
 }
 
 .pet img {
@@ -63,91 +62,89 @@ body {
   float: left;
   width: 80%;
   height: 100px;
-  padding-top: 10px;
   flex-direction: column;
   justify-content: space-around;
+  padding-top: 10px;
 }
 
 .image-container {
-  clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50%);
   width: 100px;
   height: 100px;
   float: left;
-  margin: 0px 20px 0px 10px;
+  margin: 0 20px 0 10px;
 }
 
 .pet h1 {
   white-space: nowrap;
-  font-weight: normal;
-  font-size: 30px;
   color: #333;
   width: 95%;
-  overflow: hidden;
-  margin: 0;
   text-overflow: ellipsis;
+  margin: 0;
+  font-size: 30px;
+  font-weight: normal;
+  overflow: hidden;
 }
 
-header > a,
-#root > div > h1 {
-  display: inline-block;
-  background-image: url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png);
+header > a, #root > div > h1 {
   filter: brightness(150%);
   width: 279px;
   height: 76px;
-  overflow: hidden;
   text-indent: -9999px;
+  background-image: url("http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png");
   margin: 20px 0;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .pet h2 {
   white-space: nowrap;
-  font-weight: normal;
-  font-size: 20px;
-  margin: 0;
   text-overflow: ellipsis;
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
 }
 
 header a {
   color: #333;
-  font-size: 3px;
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
   padding-bottom: 10px;
+  font-size: 3px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
 }
 
 header {
-  display: flex;
-  align-content: center;
-  justify-content: center;
   width: 1100px;
+  place-content: center;
   margin: 0 auto;
-  padding: 20px 0px 0px 0px;
+  padding: 20px 0 0;
+  display: flex;
 }
 
 .details p {
+  padding: 0 15px;
   line-height: 1.5;
-  padding: 0px 15px;
 }
 
 .details h1 {
   text-align: center;
   color: #333;
+  margin: 5px 0;
   font-size: 60px;
-  margin: 5px 0px;
 }
 
 .details h2 {
   text-align: center;
-  margin: 5px 0px 20px 0px;
+  margin: 5px 0 20px;
 }
 
 .carousel {
-  display: flex;
+  height: 400px;
   justify-content: space-around;
   align-items: center;
-  height: 400px;
   margin-top: 8px;
+  display: flex;
 }
 
 .carousel > img {
@@ -162,50 +159,46 @@ header {
 .carousel-smaller > img {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 15px;
   cursor: pointer;
   border: 2px solid #333;
+  border-radius: 50%;
+  margin: 15px;
+  display: inline-block;
 }
 
 .carousel-smaller > img.active {
+  opacity: .6;
   border-color: #333;
-  opacity: 0.6;
 }
 
 .search-params label {
-  display: block;
   width: 60px;
+  display: block;
 }
 
-.search-params input,
-.search-params select {
-  margin-bottom: 30px;
-  font-size: 18px;
+.search-params input, .search-params select {
   height: 30px;
   width: 325px;
+  margin-bottom: 30px;
+  font-size: 18px;
 }
 
-.search-params button,
-#modal button,
-#modal a,
-.details button {
-  background-color: #ad343e;
-  padding: 5px 25px;
-  color: white;
-  font-size: 18px;
-  border: #333 1px solid;
-  border-radius: 5px;
-  display: block;
-  margin: 0 auto;
+.search-params button, #modal button, #modal a, .details button {
+  color: #fff;
   cursor: pointer;
+  background-color: #ad343e;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 5px 25px;
+  font-size: 18px;
+  display: block;
 }
 
 #modal a {
-  display: inline-block;
   margin-right: 15px;
   text-decoration: none;
+  display: inline-block;
 }
 
 .search-params button:hover {
@@ -217,20 +210,17 @@ header {
 }
 
 .search-params button:focus {
-  border: 1px solid cornflowerblue;
+  border: 1px solid #6495ed;
 }
 
 #modal {
-  background-color: rgba(0, 0, 0, 0.9);
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
   z-index: 10;
-  display: flex;
+  background-color: #000000e6;
   justify-content: center;
   align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
 }
 
 #modal:empty {
@@ -238,27 +228,25 @@ header {
 }
 
 #modal > div {
-  background-color: white;
   max-width: 500px;
-  padding: 15px;
   text-align: center;
-  border-radius: 30px;
   background: #faeff0;
+  border-radius: 30px;
+  padding: 15px;
 }
 
 #modal .buttons button {
-  display: inline-block;
   margin-right: 15px;
+  display: inline-block;
 }
 
 @media only screen and (max-width: 1129px) {
   header {
-    display: flex;
-    align-content: center;
-    justify-content: center;
     width: 95%;
+    place-content: center;
     margin: 0 auto;
-    padding: 20px 0px 0px 0px;
+    padding: 20px 0 0;
+    display: flex;
   }
 
   .search-params {
@@ -271,36 +259,28 @@ header {
 
   .search {
     width: 55%;
-    padding: 15px;
-    border-radius: 9px;
     float: left;
+    border-radius: 9px;
     margin-bottom: 25px;
+    padding: 15px;
   }
 
   .details {
     width: 95%;
-    margin: 0 auto;
-    padding: 15px;
     border-radius: 9px;
-    margin-bottom: 25px;
+    margin: 0 auto 25px;
+    padding: 15px;
   }
 
   .info {
     width: 65%;
   }
 
-  .info h1 {
+  .info h1, .info h2 {
     width: 100%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .info h2 {
-    width: 100%;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
 
@@ -325,13 +305,14 @@ header {
   }
 
   .image-container {
-    margin: 0 auto;
     float: none;
+    margin: 0 auto;
   }
+
   .carousel-smaller > img {
     width: 60px;
     height: 60px;
   }
 }
 
-/*# sourceMappingURL=/style.57877779.css.map */
+/*# sourceMappingURL=index.2cdaf7bc.css.map */
