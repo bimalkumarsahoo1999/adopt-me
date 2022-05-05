@@ -1,6 +1,6 @@
 # Adopt-Me
 
-#### A complete application to browse adoptable pets. The application is built using react.js using latest features like hooks, effects, context and using tools from the react ecosystem like Parcel, ESlint and React Router. The application is also deployed for the world to see.
+A complete application to browse adoptable pets. The application is built using react.js using latest features like hooks, effects, context and using tools from the react ecosystem like Parcel, ESlint and React Router. The application is also deployed for the world to see.
 
 - #### Select Animal, Breed and Theme of your choice and click submit
 
